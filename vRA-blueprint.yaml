@@ -1,0 +1,41 @@
+formatVersion: 1
+inputs:
+  size:
+    type: string
+    title: select vm size
+    enum:
+      - small
+      - medium
+      - large
+    default: medium
+resources:
+  FirstNetwork:
+    type: Cloud.vSphere.Network
+    properties:
+      networkType: existing
+      name: data0
+  Cloud_Ansible_Tower_1:
+    type: Cloud.Ansible.Tower
+    properties:
+      host: '${resource.FirstVM.*}'
+      account: AT-Integration-01
+      jobTemplates:
+        provision:
+          - baseos
+          - baseos-sec
+  FirstVM:
+    type: Cloud.vSphere.Machine
+    properties:
+      ostype: linux
+      image: centos81
+      customizationSpec: linuxSpec
+      flavor: '${input.size}'
+      networks:
+        - name: '${resource.FirstNetwork.id}'
+          assignment: static
+          network: '${resource.FirstNetwork.id}'
+      tags:
+        - key: oslayer
+          value: baseos
+        - key: oslayer-sec
+          value: baseos-sec
