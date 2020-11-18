@@ -1,0 +1,14 @@
+# CIS_CentOS_Linux_8_Benchmark_v1.0.0
+# 3.4.1 Ensure Firewall software is installed
+# 3.4.1.1 Ensure a nftables package is installed
+- name: Install nftables package
+  dnf:
+    name: nftables
+    state: present
+# remove unused firewall packages
+# 3.4.1.1 Ensure a firewalld package is not installed
+- name: Remove firewalld package
+  dnf:
+    name: firewalld*
+    state: absent
+

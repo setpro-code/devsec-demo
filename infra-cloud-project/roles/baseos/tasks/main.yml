@@ -1,0 +1,4 @@
+# Some packages for ansible modules
+    - include_tasks: prerequisites.yml
+# Configure service users
+    - include_tasks: users.yml

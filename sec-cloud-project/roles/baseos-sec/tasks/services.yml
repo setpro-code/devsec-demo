@@ -1,0 +1,7 @@
+# CIS CentOS Linux 8 Benchmark v1.0.0 - 10-31-2019 
+# 3.4.3.7 Ensure nftables service is enabled (Scored)
+- name: Make sure nftables is enabled and running 
+  systemd:
+    state: started
+    enabled: yes
+    name: nftables

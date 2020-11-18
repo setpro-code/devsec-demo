@@ -1,0 +1,14 @@
+
+######## Configure users and groups for monitoring ##########
+- name: Create group for monitoring
+  group:
+    name: mongroup
+    state: present
+    gid: 26
+
+- name: Create user for monitoring
+  user:
+    name: monagent
+    password: P@ssw0rd!
+    uid: 50
+    group: mongroup

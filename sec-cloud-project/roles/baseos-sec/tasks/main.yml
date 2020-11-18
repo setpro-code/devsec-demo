@@ -1,0 +1,6 @@
+# Some packages must be installed or deleted
+  - include_tasks: packages.yml
+  
+# Some services must be enabled and in runnign state
+  - include_tasks: services.yml
+  

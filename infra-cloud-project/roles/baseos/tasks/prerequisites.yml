@@ -1,0 +1,21 @@
+# Install some packages
+- name: Install bash-completion
+  dnf:
+    name: bash-completion
+    state: present
+    
+# Install python pip and modules 
+- name: Install pip package
+  dnf:
+    name: python3-pip
+    state: present
+
+- name: Install python module
+  pip:
+    name: ipaddress
+
+- name: Install python module
+  pip:
+    name: psycopg2-binary
+
+

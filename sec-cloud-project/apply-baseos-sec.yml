@@ -1,0 +1,5 @@
+---
+- name: apply baseos security hardening settings
+  hosts: all
+  roles:
+    - baseos-sec

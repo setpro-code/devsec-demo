@@ -1,0 +1,5 @@
+---
+- name: apply baseos settings
+  hosts: all
+  roles:
+    - baseos
